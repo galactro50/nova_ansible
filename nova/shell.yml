@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: yes
+  become_user: nova
+  tasks:
+  - name: shell commands
+    nova_manage: action={{ item }}
+    sudo: yes
+    sudo_user: nova
+    with_items:
+    - api_db sync
+    - db sync
+    

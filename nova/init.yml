@@ -1,0 +1,16 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  - name:  install all the initial pre-requisites
+    apt: name={{ item }} state=present
+    with_items:
+    - software-properties-common
+    - python-apt
+#    become: yes
+#    become_method: sudo
+#  - name: install mitaka
+#    apt_repository: repo='cloud-archive:mitaka' state=present
+  - name: install python-openstackclient
+    apt: name=python-openstackclient state=present
