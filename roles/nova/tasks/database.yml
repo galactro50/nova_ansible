@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  - name: install pre-requisite for python mysqldb
+    apt: name={{ item }} state=present
+    with_items:
+    - python-dev
+    - libmysqlclient-dev
+  
+  - name: install python mysqldb package
+    pip: name=MySQL-python state=present
+  - name: create database nova
+    mysql_db: name= {{ item }} state=present
+    with_items:
+    - nova_api
+    - nova 

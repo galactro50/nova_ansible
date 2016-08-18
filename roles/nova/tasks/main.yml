@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - include: init.yml
+  - include: database.yml
+  - include: databaseconfig.yml
+  - include: source.yml
+  - include: user.yml
+  - include: install.yml
+  - include: shell.yml
+  - include: config.yml
+  - include: restart.yml

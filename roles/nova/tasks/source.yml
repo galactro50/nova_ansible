@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  tasks:
+  - name: source admin-openrc
+    shell: source admin-openrc
+    become: yes
+    args:
+     executable: /bin/bash

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks: 
+  - ini_file: dest=nova.conf section={{ item.sec }} option={{ item.opt }} value={{ item.val }}
+    with_items:
+    - { sec: 'DEFAULT' , opt: 'enabled_apis' , val: 'osapi_compute,metadata' }
+    - { sec: 'api_database' , opt: 'connection' , val: 'mysql+pymsql://nova:.' }
+    - { sec: 'database' , opt: 'connection' , val: 'mysql+pymysql://nova:NO' }
+    - { sec: 'DEFAULT' , opt: 'rpc_backend' , val: 'rabbit' }
