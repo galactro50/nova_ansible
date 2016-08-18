@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+  tasks:
+  - name: installing a package
+    shell: apt-get install sendmail   
+    become: yes
+

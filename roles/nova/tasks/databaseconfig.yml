@@ -1,0 +1,17 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+  - name: configuring the database
+    mysql_user: 
+      name="nova"
+      password="NOVA_DBPASS"
+      priv="{{ item }}.*:ALL,GRANT"  
+      state=present
+      host="localhost"
+      login_host="localhost"
+      login_user="ubuntu"
+      login_password=""
+    with_items:
+    - nova
+    - nova.api

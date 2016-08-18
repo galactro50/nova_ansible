@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  - name: install nova-api nova-conductor nova-consoleauth
+    apt: name={{ item }} state=present
+    with_items:
+    - nova-api
+    - nova-conductor
+    - nova-consoleauth
