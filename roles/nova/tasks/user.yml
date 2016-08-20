@@ -1,21 +1,25 @@
 ---
 - hosts: all
   become: yes
-  vars_prompt:
-  - name: "pass_nova"
-    promt: "Enter password"
-  tasks: 
-  - name: making user nova
-    user: name=nova password= {{ pass_nova }}
-  - name: Create openstack role
-    os_user_role:
-      cloud: openstack
-      user: nova
-      role: admin
-      project: project   
-  - name: Create nova endpoints
-    os_keystone_endpoints:
-      state: present
-      cloud: openstack
-      name: nova
-      type: compute
+#  vars_prompt:
+#  - name: "pass_nova"
+#    promt: "Enter password"                                #password : nova
+  tasks:
+  - name: create nova user
+    user: name=nova password=nova
+#  - name: Create openstack role
+#    os_user_role:
+#      cloud: openstack
+#      user: nova
+#      role: admin
+#      project: project
+#      keystone_user:
+#      user: nova
+#      role: admin
+#      password: nova
+#  - name: Create nova endpoints
+#    keystone_user:
+#      endpoint: http://controller:8774/v2.1/%\(tenant_id\)s
+#      state: present
+#      name: admin
+

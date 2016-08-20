@@ -7,6 +7,6 @@
     with_items:
     - nova-api
     - nova-consoleauth
-    - nova-scheduler
+#    - nova-scheduler
     - nova-conductor
-    - nova-novncproxy
+#    - nova-novncproxy

@@ -1,7 +1,8 @@
 ---
 - hosts: all
-  tasks: 
-  - ini_file: dest=nova.conf section={{ item.sec }} option={{ item.opt }} value={{ item.val }}
+  tasks:
+  - name: changing nova.conf file
+    ini_file: dest=nova.conf section={{ item.sec }} option={{ item.opt }} value={{ item.val }}
     with_items:
     - { sec: 'DEFAULT' , opt: 'enabled_apis' , val: 'osapi_compute,metadata' }
     - { sec: 'api_database' , opt: 'connection' , val: 'mysql+pymsql://nova:.' }
