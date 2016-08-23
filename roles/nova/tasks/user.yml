@@ -1,12 +1,12 @@
 ---
-- hosts: all
-  become: yes
+
+become: yes
 #  vars_prompt:
 #  - name: "pass_nova"
 #    promt: "Enter password"                                #password : nova
-  tasks:
-  - name: create nova user
-    user: name=nova password=nova
+tasks:
+- name: create nova user
+  user: name=nova password=nova
 #  - name: Create openstack role
 #    os_user_role:
 #      cloud: openstack

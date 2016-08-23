@@ -1,12 +1,11 @@
 ---
 
-- hosts: all
-  tasks:
-  - name: shell commands
-    shell: "{{ item }}"
-    become: yes
-    become_user: nova
-    with_items:
+tasks:
+- name: shell commands
+  shell: "{{ item }}"
+  become: yes
+  become_user: nova
+  with_items:
 #    - nova-manage api_db sync
-    - nova-manage db sync
+  - nova-manage db sync
 #ync the database up to the most recent version. This is the standard way to create the db as well.
