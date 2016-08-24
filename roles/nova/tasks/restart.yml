@@ -1,12 +1,12 @@
 ---
 
-become: yes
-tasks:
-- name: restart all packages
-  service: name={{ item }} state=restarted
-  with_items:
-  - nova-api
-  - nova-consoleauth
+- become: yes
+  tasks:
+  - name: restart all packages
+    service: name={{ item }} state=restarted
+    with_items:
+    - nova-api
+    - nova-consoleauth
 #    - nova-scheduler
-  - nova-conductor
+    - nova-conductor
 #    - nova-novncproxy
